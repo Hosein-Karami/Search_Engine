@@ -14,7 +14,7 @@ class Tf_Idf_Maker:
         self.words_idf = {}
         self.documents_tf_idf = []
         self.champions_list = {}
-        self.k_champion = 10
+        self.k_champion = 20
 
     def start(self):
         self.calculate_idf()
