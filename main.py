@@ -7,9 +7,9 @@ from Preprocess.General_Tokenizer import General_Tokenizer
 from Tf_Idf.Tf_Idf_Maker import Tf_Idf_Maker
 from Tf_Idf.Tf_Idf_Ranker import Tf_Idf_Ranker
 
-load_positional_indexes_info = True
+load_positional_indexes_info = False
 save_positional_indexes_info = True
-load_tf_idf_info = True
+load_tf_idf_info = False
 save_tf_idf_info = True
 K = 10
 deleted_most_frequent_count = 50

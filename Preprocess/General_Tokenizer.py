@@ -37,6 +37,14 @@ class General_Tokenizer:
         'می ': 'می\u200c',
         'نمی ': 'نمی\u200c'
     }
+    polymorphism_words = {
+        'کتاب خانه': 'کتابخانه',
+        'گفت و گو': 'گفتگو',
+        'جست و جو': 'جستجو',
+        'قران': 'قرآن',
+        'شست و شو': 'شستشو',
+        'مهمان سرا': 'مهمانسرا',
+    }
 
     def process(self, text):
         text = text.lower()
@@ -54,7 +62,10 @@ class General_Tokenizer:
                 cleaned_text += char
 
         cleaned_text = cleaned_text.translate(str.maketrans(self.number_mapping))
-        cleaned_text = cleaned_text.translate(str.maketrans(self.half_space_mapping))
+        for x in self.half_space_mapping.keys():
+            cleaned_text.replace(x, self.half_space_mapping.get(x))
+        for x in self.polymorphism_words.keys():
+            cleaned_text.replace(x, self.polymorphism_words.get(x))
 
         tokens = cleaned_text.split()
 
