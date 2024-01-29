@@ -76,13 +76,13 @@ if __name__ == '__main__':
     news = {}
 
     if load_positional_indexes_info:
-        with open('IR_data_news_12k.json') as json_file:
+        with open('IR_data_news_5k 2.json') as json_file:
             json_datas = json.load(json_file)
             json_file.close()
         json_data = None
         id = None
-        for index in range(len(json_datas)):
-            json_data = json_datas[str(index)]
+        for index in list(json_datas.keys()):
+            json_data = json_datas[index]
             id = int(json_data['url'].split('/')[4])
             news[id] = json_data
         json_datas = None
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     else:
         document_tokenizer = Document_Tokenizer(50)
 
-        with open('IR_data_news_12k.json') as json_file:
+        with open('IR_data_news_5k 2.json') as json_file:
             json_datas = json.load(json_file)
             json_file.close()
         json_data = None
@@ -100,8 +100,8 @@ if __name__ == '__main__':
         text = None
         url = None
         id = None
-        for index in range(len(json_datas)):
-            json_data = json_datas[str(index)]
+        for index in list(json_datas.keys()):
+            json_data = json_datas[index]
             title = json_data['title']
             text = json_data['content']
             url = json_data['url']
